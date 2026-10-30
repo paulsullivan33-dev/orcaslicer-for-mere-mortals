@@ -1,0 +1,26 @@
+wrote models/cube.stl: 12 triangles
+wrote models/bar-a.stl: 12 triangles
+wrote models/bar-b.stl: 12 triangles
+$ ls -la models/
+total 12
+drwxrwx--- 1 root root   52 Oct 30 04:50 .
+drwxrwx--- 1 root root 4466 Oct 30 04:50 ..
+-rw-rw---- 1 root root  684 Oct 30 04:50 bar-a.stl
+-rw-rw---- 1 root root  684 Oct 30 04:50 bar-b.stl
+-rw-rw---- 1 root root  684 Oct 30 04:50 cube.stl
+
+$ orca-slicer --info models/cube.stl
+[cube.stl]
+size_x = 20.000000
+size_y = 20.000000
+size_z = 20.000000
+min_x = 0.000000
+min_y = 0.000000
+min_z = 0.000000
+max_x = 20.000000
+max_y = 20.000000
+max_z = 20.000000
+number_of_facets = 12
+manifold = yes
+number_of_parts =  1
+volume = 8000.000488

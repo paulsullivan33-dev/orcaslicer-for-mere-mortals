@@ -1,0 +1,30 @@
+$ orca-slicer --load-settings "<Prusa MK3.5 0.4 nozzle machine>;<0.20mm Speed @MK3.5 process>" --load-filaments "<Prusa Generic PLA @MK3.5>" --outputdir out-cube --slice 0 models/cube.stl
+(no console output on success)
+
+$ ls -la out-cube/
+total 332
+drwxrwx--- 1 root root     48 Oct 30 04:57 .
+drwxrwx--- 1 root root   5012 Oct 30 04:56 ..
+-rw-rw---- 1 root root 335447 Oct 30 04:57 plate_1.gcode
+-rw-rw---- 1 root root    344 Oct 30 04:57 result.json
+
+$ cat out-cube/result.json
+{
+	"error_string": "Success.",
+	"export_time": 0,
+	"layer_height": 0.20000000298023224,
+	"plate_index": 0,
+	"prepare_time": 0,
+	"return_code": 0,
+	"sliced_plates": [
+		{
+			"id": 1,
+			"sliced_time": 1,
+			"sliced_time_with_cache": 0,
+			"triangle_count": 12,
+			"warning_message": ""
+		}
+	],
+	"sparse_infill_density": 20.0,
+	"wall_loops": 2
+}

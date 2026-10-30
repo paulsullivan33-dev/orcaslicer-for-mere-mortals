@@ -1,0 +1,23 @@
+FAILURE 1 - a bundled Creality preset refuses CLI slicing (error -51)
+
+$ orca-slicer --load-settings "<Ender-3 V2 0.4 nozzle>;<0.20mm Standard @Creality Ender3V2>" --load-filaments "<Creality Generic PLA>" --slice 0 models/cube.stl
+Relative extruder addressing requires resetting the extruder position at each layer to prevent loss of floating point accuracy. Add "G92 E0" to layer_gcode.
+run found error, return -51, exit...
+
+FAILURE 2 - a preset file that does not exist (error -3)
+
+$ orca-slicer --load-filaments "<.../Generic PLA @MK3S.json>" (no such file in 2.4.2)
+operator(): can not find setting file: /home/hatch/workspace/orcaslicer-labwork/squashfs-root/resources/profiles/Prusa/filament/Generic PLA @MK3S.json
+run found error, return -3, exit...
+
+FAILURE 3 - a model file that does not exist (error -3)
+
+$ orca-slicer --slice 0 models/nope.stl
+No such file: models/nope.stl
+run found error, return -3, exit...
+
+FAILURE 4 - models left at the bed corner (error -102)
+Two bars at the corner of a Prusa XL plate, skirt included, reach X = -2.2 mm:
+result.json said: "Found G-code in unprintable area of multi-extruder printers
+after slicing." The same bars centred on the plate sliced with
+"error_string": "Success.", "return_code": 0 (see t05).

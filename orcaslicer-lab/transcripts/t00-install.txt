@@ -1,0 +1,18 @@
+$ ./OrcaSlicer.AppImage --appimage-extract
+(extracts squashfs-root/ without needing FUSE)
+
+$ ./squashfs-root/AppRun --help
+Error: missing host OpenGL runtime library libOpenGL.so.0.
+On Ubuntu/Pop!_OS/Debian, install: libopengl0 and libglu1-mesa
+
+The AppImage links GUI libraries (OpenGL, WebKit, GStreamer) even for
+command-line work. This sandbox could not install packages (the apt lock
+was held by another tenant), so the lab downloaded the .deb packages for
+the missing libraries and extracted them into orcaslicer-labwork/hostlibs
+without installing: 50 packages, resolved from the Ubuntu 24.04 indexes.
+LD_LIBRARY_PATH then points at hostlibs plus the AppImage private runtime.
+
+$ orca-slicer --help | head -3
+OrcaSlicer-2.4.2:
+Usage: orca-slicer [ OPTIONS ] [ file.3mf/file.stl ... ]
+
